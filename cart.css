@@ -1,0 +1,129 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f40a; /* Light grey background */
+}
+
+header {
+    background-color: #07cfcf;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+#cart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#cart-container {
+    width: 80%;
+    max-width: 800px;
+    margin: auto;
+}
+
+#cart-items {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#cart-items li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 150px;
+    height: 220px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    position: relative; /* Needed for absolute positioning of 'X' */
+}
+
+#cart-items img {
+    width: 60px; /* Set to your preferred width */
+    height: auto; /* Keep the height auto to maintain aspect ratio */
+    margin-right: 10px; /* Space between image and text */
+    .quantity-container {
+        display: flex;
+        margin-left: auto; /* Align quantity controls to the right */
+    }
+    
+    button {
+        margin: 0 5px; /* Add some spacing around buttons */
+    }
+    
+    .remove-item {
+        cursor: pointer; /* Change cursor on hover */
+        color: red; /* Color for remove button */
+        margin-left: auto; /* Push to the right */
+    }
+
+#cart-items p {
+    margin: 10px 0;
+    text-align: center;
+}
+
+button {
+    margin-top: 5px;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+#cart-total {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Style for the "X" remove button */
+.remove-item {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    color: red;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Style for the quantity container to align buttons horizontally */
+.quantity-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 100px;
+}
+
+.quantity-container button {
+    width: 30px;
+    height: 30px;
+}
+#cart-items img {
+    width: 60px;  /* Set the desired width */
+    height: 60px; /* Set the desired height */
+    object-fit: cover; /* Ensure the image scales properly */
+    border-radius: 5px; /* Add some styling if you want */
+    margin-bottom: 10px; /* Add space below the image */
+}

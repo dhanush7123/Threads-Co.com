@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Details</title>
+    <link rel="stylesheet" href="payment.css"> <!-- Link to your CSS file -->
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 400px;
+        }
+        h2 {
+            font-size: 20px; /* Smaller font size for the title */
+            text-align: center;
+        }
+        .address-input {
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        .address-input input {
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .payment-option {
+            margin-bottom: 15px;
+        }
+        .payment-option label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .payment-option input {
+            margin-right: 10px;
+        }
+        .upi-options {
+            display: none; /* Initially hidden */
+            margin-bottom: 15px;
+        }
+        .success-message {
+            display: none;
+            color: white;
+            background-color: green;
+            padding: 10px;
+            text-align: center;
+            border-radius: 5px;
+            animation: fall 1s forwards;
+        }
+        #go-home {
+            display: none; /* Initially hidden */
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        @keyframes fall {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Order Details</h2>
+        <div class="address-input">
+            <label for="address">Enter your address:</label>
+            <input type="text" id="address" placeholder="Your address here" required>
+        </div>
+
+        <div class="payment-option">
+            <label>Select Payment Method:</label>
+            <input type="radio" name="payment" id="cash" value="cash" checked>
+            <label for="cash">Cash on Delivery</label>
+            <input type="radio" name="payment" id="upi" value="upi">
+            <label for="upi">UPI</label>
+        </div>
+
+        <div id="upi-options" class="upi-options">
+            <label>Select UPI Option:</label>
+            <input type="radio" name="upi-method" id="phonepay" value="phonepay">
+            <label for="phonepay">PhonePe</label>
+            <input type="radio" name="upi-method" id="googlepay" value="googlepay">
+            <label for="googlepay">Google Pay</label>
+            <input type="radio" name="upi-method" id="paytm" value="paytm">
+            <label for="paytm">Paytm</label>
+        </div>
+
+        <button id="place-order">Place Order</button>
+        <div id="success-message" class="success-message">Order Placed Successfully!</div>
+        <button id="go-home" onclick="goHome()">Go to Home Page</button>
+    </div>
+
+    <script>
+        // Show/hide UPI options based on payment method
+        document.querySelectorAll('input[name="payment"]').forEach((elem) => {
+            elem.addEventListener("change", function(event) {
+                const upiOptions = document.getElementById('upi-options');
+                if (event.target.value === 'upi') {
+                    upiOptions.style.display = 'block'; // Show UPI options
+                } else {
+                    upiOptions.style.display = 'none'; // Hide UPI options
+                }
+            });
+        });
+
+        // Place order button functionality
+        document.getElementById('place-order').addEventListener('click', function() {
+            const address = document.getElementById('address').value;
+            const paymentMethod = document.querySelector('input[name="payment"]:checked').value;
+
+            if (address.trim() === '') {
+                alert('Please enter your address.');
+                return;
+            }
+
+            // Show success message with animation
+            document.getElementById('success-message').style.display = 'block';
+            document.getElementById('go-home').style.display = 'block'; // Show "Go to Home Page" button
+        });
+
+        // Function to go back to the home page
+        function goHome() {
+            window.location.href = 'index.html'; // Change this to your home page URL
+        }
+    </script>
+</body>
+</html>

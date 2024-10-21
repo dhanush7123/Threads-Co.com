@@ -1,0 +1,26 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#address-form, #payment-options {
+    margin: 20px 0;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+}
+
+#confirm-order {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}

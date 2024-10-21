@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Apparel Shop</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="images/logo 2.jpg" alt="Pav's Fashion Hub Logo" style="width: 50px; height: 50px; vertical-align: middle;">
+            <h1 style="display: inline; margin-left: 10px;">Welcome to Pav's Fashion Hub</h1>
+        </div>
+        <div class="cart">
+            <a href="cart.html">🛒 Cart (<span id="cart-count">0</span>)</a>
+        </div>        
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#women">Women's Collection</a></li>
+            <li><a href="#men">Men's Collection</a></li>
+            <li><a href="#kids">Kids' Collection</a></li>
+            <li><a href="#accessories">Accessories</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- Women's Section -->
+    <section id="women" class="collection" style="background-image: url('images/women-bg.jpg');">
+        <h2>Women's Collection</h2>
+        <div class="gallery">
+            <div class="product">
+                <img src="images/chcik dress ana.jpeg" alt="One Piece">
+                <h3>One Piece</h3>
+                <p>₹9999.00</p>
+                <button onclick="addToCart('One Piece', 9999, 'images/chcik dress ana.jpeg')">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="images/bag.jpeg" alt="louis vuitton Handbag">
+                <h3>louis vuitton Handbag</h3>
+                <p>₹59999.00</p>
+                <button onclick="addToCart('louis vuitton', 59999, 'images/bag.jpeg')">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="images/lv shoe.jpg" alt="louis vuittons Shoes">
+                <h3>louis vuitton Shoes</h3>
+                <p>₹49999.00</p>
+                <button onclick="addToCart('louis vuitton Shoes', 49999, 'images/lv shoe.jpg')">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="images/white suite.jpg" alt="White Suit">
+                <h3>White Suit</h3>
+                <p>₹12999.00</p>
+                <button onclick="addToCart('White Suite', 12999, 'images/white suite.jpg')">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="images/red.jpeg" alt="Long Dress">
+                <h3>Long Dress</h3>
+                <p>₹15999.00</p>
+                <button onclick="addToCart('Long Dress', 15999, 'images/red.jpeg')">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Men's Section -->
+    <section id="men" class="collection" style="background-image: url('images/men-bg.jpg');">
+        <h2>Men's Collection</h2>
+        <div class="gallery">
+            <div class="product">
+                <img src="images/jacket men.jpeg" alt="Jacket">
+                <h3>Jacket</h3>
+                <p>₹1199.00</p>
+                <button onclick="addToCart('Jacket', 1199, 'images/jacket men.jpeg')">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="images/men suite.jpg" alt="Suit">
+                <h3>Suit</h3>
+                <p>₹6999.00</p>
+                <button onclick="addToCart('Suit', 6999, 'images/men suite.jpg')">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="images/t shirt men.jpg" alt="T-Shirt">
+                <h3>Casual T-Shirt</h3>
+                <p>₹999.00</p>
+                <button onclick="addToCart('Casual T-Shirt', 999, 'images/t shirt men.jpg')">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="images/shirt men.jpeg" alt="Shirt">
+                <h3>Shirt</h3>
+                <p>₹5555.00</p>
+                <button onclick="addToCart('Shirt', 5555, 'images/shirt men.jpeg')">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="\images\oant.jpg" alt="Formal Pant">
+                <h3>Formal Pant</h3>
+                <p>₹5333.00</p>
+                <button onclick="addToCart('Formal Pant', 999, '/images/oant.jpg')">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <!-- Kids' Section -->
+    <section id="kids" class="collection" style="background-image: url('images/kids-bg.jpg');">
+        <h2>Kids' Collection</h2>
+        <div class="gallery">
+            <div class="product">
+                <img src="images/lids jacket.jpeg" alt="Jacket">
+                <h3>Kid's Jacket</h3>
+                <p>₹999.00</p>
+                <button onclick="addToCart('Kid\'s Jacket', 999, 'images/lids jacket.jpeg')">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="images/kids shoe.jpeg" alt="Shoes">
+                <h3>Shoes</h3>
+                <p>₹1599.00</p>
+                <button onclick="addToCart('Kid\'s Shoes', 1599, 'images/kids shoe.jpeg')">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="images/kids t shirt.jpeg" alt="T-shirt">
+                <h3>T-Shirt</h3>
+                <p>₹799.00</p>
+                <button onclick="addToCart('Cute T-Shirt', 799, 'images/kids t shirt.jpeg')">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="images/shorts.jpeg" alt="shorts">
+                <h3>Shorts</h3>
+                <p>399.00</p>
+                <button onclick="addToCart('Shorts', 399, 'images/shorts.jpeg')">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="images/kids watch.jpeg" alt="kid watch">
+                <h3>Watch</h3>
+                <p>2599.00</p>
+                <button onclick="addToCart('Kid watch', 2599, 'images/kids watch.jpeg')">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Accessories Section -->
+    <section id="accessories" class="collection" style="background-image: url('images/accessories-bg.jpg');">
+        <h2>Accessories</h2>
+        <div class="gallery">
+            <div class="product">
+                <img src="images/rolex.jpeg" alt="Watch">
+                <h3>Watch</h3>
+                <p>₹109000.00</p>
+                <button onclick="addToCart('Watch', 109000, 'images/rolex.jpeg')">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="images/sunglasses.jpeg" alt="Sunglasses">
+                <h3>Sunglasses</h3>
+                <p>₹12999.00</p>
+                <button onclick="addToCart('Sunglasses', 12999, 'images/sunglasses.jpeg')">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="images/hat.jpeg" alt="Hat">
+                <h3>Hat</h3>
+                <p>₹7999.00</p>
+                <button onclick="addToCart('Hat', 7999, 'images/hat.jpeg')">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="images/rigs.jpeg" alt="Rings Combo">
+                <h3>Rings Combo</h3>
+                <p>1299.00</p>
+                <button onclick="addToCart('Rings Combo', 1299, 'images/rigs.jpeg')">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="images/brac.jpeg" alt="Bracelet">
+                <h3>Bracelet</h3>
+                <p>₹5999.00</p>
+                <button onclick="addToCart('Bracelet', 5999, 'images/brac.jpeg')">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Pavithra's Fashion Hub. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Function to add items to the cart
+        function addToCart(name, price, image) {
+            // Get existing cart items from localStorage
+            let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            
+            // Check if the item already exists in the cart
+            const existingItemIndex = cartItems.findIndex(item => item.name === name);
+            
+            if (existingItemIndex > -1) {
+                // If item exists, increase quantity
+                cartItems[existingItemIndex].quantity += 1;
+            } else {
+                // If item does not exist, add it to the cart
+                cartItems.push({ name, price, quantity: 1, image });
+            }
+            
+            // Save the updated cart back to localStorage
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+            // Update the cart count display
+            document.getElementById('cart-count').textContent = cartItems.length;
+        }
+    </script>
+</body>
+</html>

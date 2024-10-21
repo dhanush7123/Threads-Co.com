@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart - Pav's Fashion Hub</title>
+    <link rel="stylesheet" href="cart.css"> <!-- Link to the new cart.css -->
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <h1>Your Cart</h1>
+        </div>
+        <div class="cart">
+            <a href="index.html">Continue Shopping</a>
+        </div>
+    </header>
+
+    <!-- Cart Section -->
+    <section id="cart">
+        <div id="cart-container">
+            <ul id="cart-items">
+                <!-- Cart items will be loaded here dynamically using JavaScript -->
+            </ul>
+            <div id="cart-total">Total: ₹0</div>
+            <button id="proceed">Proceed</button> <!-- Changed button text to "Proceed" -->
+        </div>
+    </section>
+
+    <script>
+        // Sample cartItems data (can be stored in localStorage)
+        const initialCartItems = [
+            {
+                "name": "Product 1",
+                "price": 100,
+                "quantity": 1,
+                "image": "/images/jacket men.jpeg"  // Ensure this is a valid path
+            },
+            {
+                "name": "Product 2",
+                "price": 150,
+                "quantity": 1,
+                "image": "images/product2.jpg"  // Ensure this is a valid path
+            }
+        ];
+
+        // Save the initialCartItems to localStorage if it doesn't already exist
+        if (!localStorage.getItem('cartItems')) {
+            localStorage.setItem('cartItems', JSON.stringify(initialCartItems));
+        }
+
+        // Function to load cart data from localStorage and display in the cart page
+        function loadCart() {
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            const cartList = document.getElementById('cart-items');
+            const cartTotal = document.getElementById('cart-total');
+            
+            // Clear previous items in the cart list
+            cartList.innerHTML = '';
+
+            // Initialize total cost
+            let totalCost = 0;
+
+            // Loop through cart items and create list elements
+            cartItems.forEach((item, index) => {
+                const listItem = document.createElement('li');
+
+                // Create an image element
+                const itemImage = document.createElement('img');
+                itemImage.src = item.image;  // Image path from the cart item
+                itemImage.alt = item.name;
+                itemImage.style.width = '60px';  // Adjust width
+                itemImage.style.height = '60px'; // Adjust height
+
+                // Create a text element for name and price
+                const itemText = document.createElement('p');
+                itemText.textContent = `${item.name} - ₹${item.price.toFixed(2)} (Quantity: ${item.quantity || 1})`;
+
+                // Create a button to increase the quantity
+                const increaseQuantityButton = document.createElement('button');
+                increaseQuantityButton.textContent = '+';
+                increaseQuantityButton.onclick = () => updateQuantity(index, 1);  // Increase by 1
+
+                // Create a button to decrease the quantity
+                const decreaseQuantityButton = document.createElement('button');
+                decreaseQuantityButton.textContent = '-';
+                decreaseQuantityButton.onclick = () => updateQuantity(index, -1);  // Decrease by 1
+
+                // Create an "X" button to remove the item, positioned at the top-right corner
+                const removeButton = document.createElement('span');
+                removeButton.textContent = 'X';
+                removeButton.classList.add('remove-item');
+                removeButton.onclick = () => removeItem(index);  // Remove item
+
+                // Create a container for the quantity buttons
+                const quantityContainer = document.createElement('div');
+                quantityContainer.classList.add('quantity-container');
+                quantityContainer.appendChild(decreaseQuantityButton);
+                quantityContainer.appendChild(increaseQuantityButton);
+
+                // Append elements to the list item
+                listItem.appendChild(removeButton); // "X" in the top-right
+                listItem.appendChild(itemImage);    // Product image
+                listItem.appendChild(itemText);     // Product name and price
+                listItem.appendChild(quantityContainer); // Side by side + and - buttons
+                
+                // Append the list item to the cart list
+                cartList.appendChild(listItem);
+
+                // Update total cost
+                totalCost += item.price * item.quantity;
+            });
+
+            // Update the total cost display
+            cartTotal.textContent = `Total: ₹${totalCost.toFixed(2)}`;
+        }
+
+        // Function to update item quantity
+        function updateQuantity(index, change) {
+            let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            cartItems[index].quantity = (cartItems[index].quantity || 1) + change;
+
+            // Ensure the quantity doesn't go below 1
+            if (cartItems[index].quantity < 1) {
+                cartItems[index].quantity = 1;
+            }
+
+            // Save the updated cart back to localStorage
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+            // Reload the cart
+            loadCart();
+        }
+
+        // Function to remove item from cart
+        function removeItem(index) {
+            let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            cartItems.splice(index, 1);  // Remove the item at the given index
+
+            // Save the updated cart back to localStorage
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+            // Reload the cart
+            loadCart();
+        }
+
+        // Add event listener to proceed button to redirect to payment page
+        document.getElementById('proceed').addEventListener('click', function() {
+            window.location.href = 'payment.html'; // Change this to your payment page URL
+        });
+
+        // Call this function to load cart items on page load
+        window.onload = loadCart;
+    </script>
+</body>
+</html>

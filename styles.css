@@ -1,0 +1,68 @@
+
+header {
+    background-color: #07cfcf;
+    color: rgb(245, 245, 245);
+    padding: 10px 0;
+    text-align: center;
+    background-color: #07cfcf;
+}
+
+nav ul {
+    list-style-type: none;
+    background-color: #273103;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+}
+
+.collection {
+    padding: 20px;
+    text-align: center;
+}
+
+.gallery {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.gallery img {
+    width: 100%; /* Set width to 100% of the parent container */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Ensure image fills the container without distortion */
+}
+
+.product {
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 10px;
+    width: 200px;
+}
+
+.product img {
+    width: 100%;
+    height: auto;
+}
+
+.cart {
+    position: absolute;
+    right: 0; /* Aligns the cart to the right edge */
+    top: 0;   /* Aligns the cart to the top edge */
+    margin: 20px; /* Adds some space from the edges */
+    color: #9cec08; /* Change this to your desired text color */
+    text-decoration: none; /* Optional: removes underline from links */
+}
+
+}
+
